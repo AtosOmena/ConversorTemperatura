@@ -1,0 +1,29 @@
+version: '3.8'
+
+volumes:
+  build_artifacts:
+
+services:
+  build:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: build-container
+    volumes:
+      - build_artifacts:/app/target
+      - .:/app
+    working_dir: /app
+    command: mvn package -DskipClean=true -DskipTests=true
+
+  test:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: test-container
+    volumes:
+      - build_artifacts:/app/target
+      - .:/app
+    working_dir: /app
+    command: mvn test
+    depends_on:
+      - build
