@@ -10,10 +10,3 @@ COPY src ./src
 
 # Executa o build e os testes
 RUN mvn clean package
-
-# Imagem final opcional (se for apenas para build)
-# FROM eclipse-temurin:17-jdk-alpine
-# WORKDIR /app
-# COPY --from=builder /app/target/TemperatureConverter-1.0-SNAPSHOT.jar .
-
-# ENTRYPOINT ["java", "-jar", "TemperatureConverter-1.0-SNAPSHOT.jar"]

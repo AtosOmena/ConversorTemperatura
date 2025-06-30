@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git url: 'https://github.com/SEU_USUARIO/SEU_REPOSITORIO.git'
+                git url: 'https://github.com/AtosOmena/ConversorTemperatura.git'
             }
         }
 
